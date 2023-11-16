@@ -11,6 +11,6 @@ program.helpOption('-h, --help', 'output usage information')
 program.option('-f, --format <type>',  'output format')
 program.action((filepath1, filepath2) => {
     console.log(fs.readFileSync('file1.json', 'utf8'));
-    console.log(fs.readFileSync('file1.json', 'utf8'));
+    console.log(fs.readFileSync('file2.json', 'utf8'));
         });
 program.parse();
