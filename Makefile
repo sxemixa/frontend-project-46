@@ -1,6 +1,6 @@
 install:
 	npm ci
-brain-games:
-	node bin/gendiff.js
+gendiff:
+	node bin/gendiff.js filepath1.json filepath2.json
 publish:
 	npm publish --dry-run
