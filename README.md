@@ -1,4 +1,5 @@
 ### Hexlet tests and linter status:
+[![Actions Status](https://github.com/sxemixa/frontend-project-46/actions/workflows/myfirstcheck.yml/badge.svg)](https://github.com/sxemixa/frontend-project-46/actions)
 [![Actions Status](https://github.com/sxemixa/frontend-project-46/actions/workflows/hexlet-check.yml/badge.svg)](https://github.com/sxemixa/frontend-project-46/actions)
 ### Climat maintainability and test coverage status:
 [![Maintainability](https://api.codeclimate.com/v1/badges/aaebd675ec5f9dbd100d/maintainability)](https://codeclimate.com/github/sxemixa/frontend-project-46/maintainability)
