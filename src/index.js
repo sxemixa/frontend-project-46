@@ -1,5 +1,6 @@
 import path from 'node:path';
-import fs from 'node:fs'; 
+import fs from 'node:fs';
+import _ from 'lodash';
 
 const getAbsolutePath = (filepath) => {
     return path.resolve(process.cwd(), filepath);
@@ -16,28 +17,25 @@ const getProcessedFile = (filepath) => {
     return result;
 };
 
-export { getProcessedFile };
+const genDiff = (filepath1, filepath2) => {
+    const obj1 = getProcessedFile(filepath1);
+    const obj2 = getProcessedFile(filepath2);
+    const keys1 = Object.keys(obj1);
+    const keys2 = Object.keys(obj2);
+    const sortedKeys = _.sortBy(_.union(keys1, keys2));
+    const diffResult = sortedKeys.map((key) => {
+      if (!_.has(obj1, key)) {
+        return ` + ${key}: ${obj2[key]}`;
+      } else if (!_.has(obj2, key)) {
+        return ` - ${key}: ${obj1[key]}`;
+      } else if (_.isEqual(obj1[key], obj2[key])) {
+        return `   ${key}: ${obj1[key]}`;
+      } else {
+        return ` - ${key}: ${obj1[key]}\n + ${key}: ${obj2[key]}`;
+      }
+    });
+    return `{\n${diffResult.join('\n')}\n}`;
+};
 
-//объединение ключей
-//что такое технический долг?
-//const keys = _.union(_.keys(obj1), _keys(obj2));
 
-
-
-
-
-
-
-
-//const build = (key, obj1, obj2) => {
-   // const val1 = obj1[key];
-   // const val2 = obj2[key];
-   // if (val1 && val2) {
-       // if (val1 === val2 || (_.isObject(val1) && _.isObject(val2))) {
-            //const children = _.isObject(val2) ? buildDiff(val1, val2) : [];
-            //return { key, childern, type: 'unchanged',
-                //value: _.isObject(val1) ? null : val1,
-         //   };
-      //  }
-   // }
-//};
+export { getProcessedFile, genDiff };
