@@ -7,4 +7,5 @@ publish:
 lint:
 	npm install --save-dev eslint
 test:
-	NODE_OPTIONS=--experimental-vm-modules npx jest
+	npx jest
+	npx jest --coverage
