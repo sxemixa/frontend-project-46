@@ -8,4 +8,5 @@ lint:
 	npm install --save-dev eslint
 test:
 	npx jest
+test-coverage:
 	npx jest --coverage
