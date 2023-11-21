@@ -1,4 +1,4 @@
-import { genDiff } from "../src";
+import genDiff from '../src/index.js';
 
 test('genDiff json test', () => {
     const diffOutput = genDiff('__fixtures__/file1.json', '__fixtures__/file2.json');
@@ -14,7 +14,7 @@ test('genDiff json test', () => {
   });
 
 test('genDiff yml test', () => {
-    const diffOutput = genDiff('__fixtures__/file1.yml', '__fixtures__/file2.yml');
+    const diffOutput = genDiff('__fixtures__/file1.yaml', '__fixtures__/file2.yaml');
     const expectedOutput = `{
  - follow: false
    host: hexlet.io
