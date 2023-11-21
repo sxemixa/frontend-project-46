@@ -11,7 +11,7 @@ const readFile = (filepath) => {
 const parse = (filepath) => {
     return JSON.parse(filepath);
 };
-
+// true?
 const getProcessedFile = (filepath) => {
     const result = parse(readFile(getAbsolutePath(filepath)));
     return result;
