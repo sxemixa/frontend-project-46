@@ -1,23 +1,23 @@
-import _ from 'lodash';
+import fs from 'fs';
+import path from 'path';
+import data from './buildTree.js';
 import parse from './parsers.js';
+import getFormat from './formaters/index.js';
 
-const genDiff = (filepath1, filepath2) => {
-  const obj1 = parse(filepath1);
-  const obj2 = parse(filepath2);
-  const keys1 = Object.keys(obj1);
-  const keys2 = Object.keys(obj2);
-  const sortedKeys = _.sortBy(_.union(keys1, keys2));
-  const diffResult = sortedKeys.map((key) => {
-    if (!_.has(obj1, key)) {
-      return ` + ${key}: ${obj2[key]}`;
-    } if (!_.has(obj2, key)) {
-      return ` - ${key}: ${obj1[key]}`;
-    } if (_.isEqual(obj1[key], obj2[key])) {
-      return `   ${key}: ${obj1[key]}`;
-    }
-    return ` - ${key}: ${obj1[key]}\n + ${key}: ${obj2[key]}`;
-  });
-  return `{\n${diffResult.join('\n')}\n}`;
+const getFullPath = (filepath) => path.resolve(process.cwd(), filepath);
+const excludeFormat = (filepath) => path.extname(filepath).substring(1);
+
+const getFileData = (filepath) => {
+  const dataPath = fs.readFileSync(getFullPath(filepath), 'utf-8');
+  return parse(dataPath, excludeFormat(filepath));
+};
+
+const genDiff = (filepath1, filepath2, formatName = 'stylish') => {
+  const data1 = getFileData(filepath1);
+  const data2 = getFileData(filepath2);
+
+  const difference = data(data1, data2);
+  return getFormat(difference, formatName);
 };
 
 export default genDiff;
