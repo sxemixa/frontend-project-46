@@ -7,7 +7,7 @@
 
 ## Gendiff
 
-This program that takes two files (JSON, YAML) and returns the difference of 
+This program that takes two files (JSON, YAML) and returns the difference of them.
 
 Features:
  - Supported formats: JSON, YAML. 
