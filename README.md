@@ -6,4 +6,25 @@
 [![Test Coverage](https://api.codeclimate.com/v1/badges/aaebd675ec5f9dbd100d/test_coverage)](https://codeclimate.com/github/sxemixa/frontend-project-46/test_coverage)
 
 ## Gendiff
+
+This program that takes two files (JSON, YAML) and returns the difference of 
+
+Features:
+ - Supported formats: JSON, YAML. 
+ - Can return difference in the next forms: plain text, stylish, json.
+
+## Installation and system requirements
+
+# install dependencies
+make install
+
+# install the package
+make link
+
+# help
+gendiff -h
+
+# System Requirements
+Node.js (21.1.0)
+
 [![asciicast](https://asciinema.org/a/pjBhkrelddoT5UhNDEwE1TgTG.svg)](https://asciinema.org/a/pjBhkrelddoT5UhNDEwE1TgTG)
