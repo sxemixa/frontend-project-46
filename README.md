@@ -15,16 +15,20 @@ Features:
 
 ## Installation and system requirements
 
-# install dependencies
+### install dependencies
+```
 make install
-
-# install the package
+```
+### install the package
+```
 make link
-
-# help
+```
+### help
+````
 gendiff -h
-
-# System Requirements
+````
+### System Requirements
 Node.js (21.1.0)
 
+## Project Demonstration
 [![asciicast](https://asciinema.org/a/pjBhkrelddoT5UhNDEwE1TgTG.svg)](https://asciinema.org/a/pjBhkrelddoT5UhNDEwE1TgTG)
