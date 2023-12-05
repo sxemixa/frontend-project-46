@@ -1,7 +1,7 @@
 {
   "name": "@hexlet/code",
   "version": "1.0.0",
-  "description": "[![Actions Status](https://github.com/sxemixa/frontend-project-46/actions/workflows/hexlet-check.yml/badge.svg)](https://github.com/sxemixa/frontend-project-46/actions)",
+  "description": "This program that takes two files (JSON, YAML) and returns the difference of them.",
   "type": "module",
   "main": "src/index.js",
   "scripts": {
