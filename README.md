@@ -27,6 +27,10 @@ make link
 ````
 gendiff -h
 ````
+### Example
+````
+gendiff -format plain __fixtures__/file1.json __fixtures__/file2.json
+````
 ### System Requirements
 Node.js (21.1.0)
 
